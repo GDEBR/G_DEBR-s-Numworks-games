@@ -156,5 +156,4 @@ class Snake:
 
           self.init_snk()
 
-
 Snake(config)
