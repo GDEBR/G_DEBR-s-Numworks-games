@@ -5,7 +5,6 @@ from random import randint
 
 config = {}
 
-
 class Snake:
   def __init__(self, config, high_score=0):
     self.imported_config = config
@@ -16,7 +15,7 @@ class Snake:
 
   def set_config(self):
     self.x,self.y=160,110
-    self.init_len=3
+    self.init_len=2
     self.body=[(self.x,self.y)]
     self.sleep=0.01
     self.decrement=0.0003
@@ -24,10 +23,10 @@ class Snake:
     self.direction="up"
     self.tdirection="up"
 
-    self.brd_co = (255,0,0)
+    self.brd_co = (100,100,100)
     self.bg_co = (255,255,255)
-    self.snk_co = (100,255,100)
-    self.fd_co = (255,100,100)
+    self.snk_co = (10,255,10)
+    self.fd_co = (255,10,10)
     
     for key, value in self.imported_config.items():
       setattr(self, key, value)
@@ -144,10 +143,8 @@ class Snake:
           fill_rect(5,6,310,210,self.bg_co)
           draw_string("T'as perdu",120,100)
           draw_string("Clique sur EXE pour rejouer",25,120)
-          draw_string("CLique sur OFF pour quitter le jeu",25,137)
+          draw_string("Clique sur OFF pour quitter",25,137)
 
-          self.high_score=max(self.len - self.init_len, self.high_score)
-          draw_string("Highscore : "+str(self.high_score) ,80,190)
   
           self.show_score(120,170)
           while 1 :
@@ -155,9 +152,9 @@ class Snake:
               break
             if keydown(KEY_ONOFF):
               return
-            sleep(0.01)
+            sleep(10)
 
           self.init_snk()
 
 
-Snake(config, high_score=666)
+Snake(config)
