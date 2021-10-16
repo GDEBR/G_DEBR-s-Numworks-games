@@ -152,7 +152,7 @@ class Snake:
               break
             if keydown(KEY_ONOFF):
               return
-            sleep(10)
+            sleep(0.01)
 
           self.init_snk()
 
